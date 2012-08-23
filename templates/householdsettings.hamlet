@@ -1,0 +1,4 @@
+<h1>Household settings
+    <form method=post enctype=#{enctype}>
+        ^{formWidget}
+        <input type=submit value=Update>

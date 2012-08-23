@@ -1,0 +1,12 @@
+div > label {
+    float: left;
+    padding-right: 5px;
+}
+div.optional{
+    float: none;
+    clear: left;
+}
+div.required {
+    float: none;
+    clear: left;
+}

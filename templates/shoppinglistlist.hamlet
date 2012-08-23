@@ -1,0 +1,8 @@
+<h2>Your shopping lists
+    $if null lists
+        <div class=warning>You have no lists. Why don't you <a href=@{ShoppinglistAddR}>create some
+    $else
+        <div><a href=@{ShoppinglistAddR}>Create new list
+        <ul>
+            $forall Entity key value <- lists
+                <li><a href=@{ShoppinglistHandlerR key}>#{shoppingListName $ value}

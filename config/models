@@ -1,0 +1,38 @@
+User
+    ident Text
+    password Text Maybe
+    UniqueUser ident
+Email
+    email Text
+    user UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
+Household
+    owner UserId
+    name Text
+    UniqueOwner owner
+HouseholdMembers
+    household HouseholdId
+    member UserId
+    UniqueHouseholdMember household member
+HouseholdQueue
+    household HouseholdId
+    applicant UserId
+    UniqueQueueApplicant household applicant
+Pantry
+    household HouseholdId
+    item ItemId
+Item
+    name Text
+    cost Double Maybe
+    UniqueName name
+ShoppingList
+    household HouseholdId
+    name Text
+ShoppingListItem
+    list ShoppingListId
+    item ItemId
+    count Int
+    UniqueItem list item
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)

@@ -1,0 +1,20 @@
+Default: &defaults
+  database: shoppinglist.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: shoppinglist_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: shoppinglist_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: shoppinglist_production.sqlite3
+  poolsize: 100
+  <<: *defaults
