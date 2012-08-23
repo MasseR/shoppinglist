@@ -23,16 +23,16 @@ $newline never
         <script>
           document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <header>
             <div class=container>
                 <div class=navbar id=menu>
                     <div class=navbar-inner>
                         <ul class=nav>
                             ^{menu}
-            <div id="main" role="main">
+            <div id="main" class=container role="main">
               ^{pageBody pc}
-            <footer>
+            <footer class=container>
                 #{extraCopyright $ appExtra $ settings master}
 
         $maybe analytics <- extraAnalytics $ appExtra $ settings master
