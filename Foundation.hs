@@ -120,6 +120,20 @@ instance Yesod App where
     authRoute _ = Just $ AuthR LoginR
 
     isAuthorized HouseholdSettingsR _ = loggedIn
+    isAuthorized ShoppinglistAddR _ = loggedIn
+    isAuthorized (ShoppinglistHandlerR listId) _ = do
+      user <- maybeAuthId
+      case user of
+           Nothing -> return AuthenticationRequired
+           Just user' -> do
+             shoppinglist <- runDB $ get listId
+             case shoppinglist of
+                  Nothing -> return Authorized
+                  Just shoppinglist' -> do
+                    member <- runDB $ selectList [HouseholdMembersHousehold ==. (shoppingListHousehold shoppinglist'), HouseholdMembersMember ==. user'] []
+                    case member of
+                         [] -> return $ Unauthorized "No permission"
+                         [_] -> return Authorized
     isAuthorized _ _ = return Authorized
 
     -- This function creates static content files in the static folder
