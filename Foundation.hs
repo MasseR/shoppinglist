@@ -104,9 +104,12 @@ instance Yesod App where
                           <a href=@{AuthR LoginR}>Login
                         |]
         pc <- widgetToPageContent $ do
-            toWidget [lucius|.navbar-inner { min-height: 40px; }|]
-            $(widgetFile "normalize")
-            addStylesheet $ StaticR css_bootstrap_css
+            toWidget [lucius|body { padding-top: 60px; padding-bottom: 40px; }|]
+            addStylesheet $ StaticR css_bootstrap_min_css
+            addStylesheet $ StaticR css_bootstrap_responsive_css
+            addStylesheet $ StaticR css_main_css
+            addScriptRemote "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
+            addScript $ StaticR js_vendor_modernizr_2_6_1_respond_1_1_0_min_js
             $(widgetFile "default-layout")
         hamletToRepHtml $(hamletFile "templates/default-layout-wrapper.hamlet")
 
