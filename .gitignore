@@ -1,6 +1,5 @@
 *.swp
 *.sqlite3
 dist
-*.css
 core
 tags
