@@ -104,9 +104,12 @@ instance Yesod App where
                           <a href=@{AuthR LoginR}>Login
                         |]
         pc <- widgetToPageContent $ do
-            toWidget [lucius|.navbar-inner { min-height: 40px; }|]
-            $(widgetFile "normalize")
-            addStylesheet $ StaticR css_bootstrap_css
+            toWidget [lucius|body { padding-top: 60px; padding-bottom: 40px; }|]
+            addStylesheet $ StaticR css_bootstrap_min_css
+            addStylesheet $ StaticR css_bootstrap_responsive_css
+            addStylesheet $ StaticR css_main_css
+            addScriptRemote "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
+            addScript $ StaticR js_vendor_modernizr_2_6_1_respond_1_1_0_min_js
             $(widgetFile "default-layout")
         hamletToRepHtml $(hamletFile "templates/default-layout-wrapper.hamlet")
 
@@ -120,6 +123,20 @@ instance Yesod App where
     authRoute _ = Just $ AuthR LoginR
 
     isAuthorized HouseholdSettingsR _ = loggedIn
+    isAuthorized ShoppinglistAddR _ = loggedIn
+    isAuthorized (ShoppinglistHandlerR listId) _ = do
+      user <- maybeAuthId
+      case user of
+           Nothing -> return AuthenticationRequired
+           Just user' -> do
+             shoppinglist <- runDB $ get listId
+             case shoppinglist of
+                  Nothing -> return Authorized
+                  Just shoppinglist' -> do
+                    member <- runDB $ selectList [HouseholdMembersHousehold ==. (shoppingListHousehold shoppinglist'), HouseholdMembersMember ==. user'] []
+                    case member of
+                         [] -> return $ Unauthorized "No permission"
+                         [_] -> return Authorized
     isAuthorized _ _ = return Authorized
 
     -- This function creates static content files in the static folder

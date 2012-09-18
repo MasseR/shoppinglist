@@ -1,1 +1,7 @@
-<h1>Welcome to the new and improved shopping list
+<div class=hero-unit>
+    <h1>Home
+    <h4>News
+    <ul class="news">
+        <li>Implemented responsive layout as per 
+            <a href="http://www.initializr.com">Initializr
+        <li>Shoppinglists are protected by password
