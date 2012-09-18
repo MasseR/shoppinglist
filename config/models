@@ -34,5 +34,18 @@ ShoppingListItem
     item ItemId
     count Int
     UniqueItem list item
+Recipe
+    public Bool
+    name Text
+    source Text Maybe
+    servings Int
+    description Text
+    recipe Text
+    UniqueRecipeName name
+RecipeIngredients
+    recipe RecipeId
+    item ItemId
+    quantity Double
+    unit Unit
 
  -- By default this file is used in Model.hs (which is imported by Foundation.hs)
