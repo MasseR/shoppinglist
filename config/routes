@@ -13,7 +13,7 @@
 /queue/#UserId AcceptanceQueueR GET POST
 /recipes/ RecipesR GET
 /recipe/new NewRecipeR GET POST
-/recipe/#RecipeId EditRecipeR GET POST PUT
+/recipe/edit/#RecipeId EditRecipeR GET POST PUT
 /menu/now CurrentMenuR GET
 /menu/new NewMenuR GET POST
-/menu/#MenuId EditMenuR GET POST PUT
+/menu/edit/#MenuId EditMenuR GET POST PUT
