@@ -34,6 +34,14 @@ library
                      Handler.ShoppinglistList
                      Handler.ShoppinglistAdd
                      Handler.ShoppinglistHandler
+                     Handler.RequestUser
+                     Handler.AcceptanceQueue
+                     Handler.Recipes
+                     Handler.NewRecipe
+                     Handler.EditRecipe
+                     Handler.CurrentMenu
+                     Handler.NewMenu
+                     Handler.EditMenu
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

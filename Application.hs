@@ -23,6 +23,14 @@ import Handler.HouseholdSettings
 import Handler.ShoppinglistList
 import Handler.ShoppinglistAdd
 import Handler.ShoppinglistHandler
+import Handler.RequestUser
+import Handler.AcceptanceQueue
+import Handler.Recipes
+import Handler.NewRecipe
+import Handler.EditRecipe
+import Handler.CurrentMenu
+import Handler.NewMenu
+import Handler.EditMenu
 
 -- This line actually creates our YesodSite instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see

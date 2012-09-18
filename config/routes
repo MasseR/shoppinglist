@@ -9,3 +9,11 @@
 /shoppinglist ShoppinglistListR GET
 /shoppinglist/add ShoppinglistAddR GET POST
 /shoppinglist/edit/#ShoppingListId ShoppinglistHandlerR GET POST
+/household/#HouseholdId/request RequestUserR GET POST
+/queue/#UserId AcceptanceQueueR GET POST
+/recipes/ RecipesR GET
+/recipe/new NewRecipeR GET POST
+/recipe/#RecipeId EditRecipeR GET POST PUT
+/menu/now CurrentMenuR GET
+/menu/new NewMenuR GET POST
+/menu/#MenuId EditMenuR GET POST PUT
