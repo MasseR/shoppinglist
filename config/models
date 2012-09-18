@@ -35,8 +35,11 @@ ShoppingListItem
     count Int
     UniqueItem list item
 Recipe
-    public Bool
+    owner HouseholdId
+    public Bool -- Whether it can be shown to other users
     name Text
+    course Course
+    picture FilePath Maybe
     source Text Maybe
     servings Int
     description Text
@@ -47,5 +50,14 @@ RecipeIngredients
     item ItemId
     quantity Double
     unit Unit
+Menu
+    household HouseholdId
+    year Int
+    week Int
+    UniqueMenu year week
+MenuItem
+    menu MenuId
+    menuCourse Text
+    menuRecipe RecipeId Maybe
 
  -- By default this file is used in Model.hs (which is imported by Foundation.hs)
