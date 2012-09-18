@@ -1,0 +1,23 @@
+$if l == Authorized
+    <li>
+        <a href=@{ShoppinglistListR}>Shopping lists
+    <li>
+        <a href=@{CurrentMenuR}>Weekly menu
+    <li>
+        <a href=@{RecipesR}>Recipes
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Household administration
+            <b class=caret>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#">Edit household
+            <li>
+                <a href="#">Request members
+            <li>
+                <a href="#">Requests
+    <li>
+        <a href=@{AuthR LogoutR}>Log out
+$else
+    <li>
+        <a href=@{AuthR LoginR}>Login

@@ -92,17 +92,7 @@ instance Yesod App where
         -- you to use normal widget features in default-layout.
 
         l <- loggedIn
-        let menu = case l of
-                      Authorized -> [hamlet|
-                        <li>
-                          <a href=@{ShoppinglistListR}>Shopping lists
-                        <li>
-                          <a href=@{AuthR LogoutR}>Log out
-                        |]
-                      _ -> [hamlet|
-                        <li>
-                          <a href=@{AuthR LoginR}>Login
-                        |]
+        let menu = $(hamletFile "templates/menu.hamlet")
         pc <- widgetToPageContent $ do
             toWidget [lucius|body { padding-top: 60px; padding-bottom: 40px; }|]
             addStylesheet $ StaticR css_bootstrap_min_css
